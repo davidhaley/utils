@@ -7,6 +7,8 @@
 # You can pass additional `delta` command line options to override these defaults.
 # If you pass the `-s` flag, the function takes a screenshot of the diff with `termshot`.
 #
+# Dependencies: jq, delta, termshot
+#
 # Usage:
 #   diff_json <file1> <file2> [delta options] [-s]
 #

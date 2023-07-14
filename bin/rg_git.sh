@@ -70,8 +70,6 @@ echo
 # Check if the repository is a git repository
 if [ -d "$repo/.git" ]; then
     # Retrieve all commits since the given date
-    # commits=$(git -C "$repo" log --since="$date" --pretty=format:'%C(dim green)(%ad - %cr) %C(magenta)%h%Creset -%C(red)%d%Creset %s %C(cyan)<%an>%Creset' --abbrev-commit --date=short --color=always)
-
     commits=$(git -C "$repo" log --since="$date" \
         --pretty=format:'%C(dim green)%ad (%cr ago) %C(magenta)%h%Creset -%C(red)%d%Creset %s %C(cyan)<%an>%Creset' \
         --abbrev-commit --date=format:'%Y-%m-%d' --color=always \

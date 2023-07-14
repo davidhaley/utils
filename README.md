@@ -46,3 +46,33 @@ Arguments:
     These options must be in the format `--option=value`.
   -s - Optional. If present, the function takes a screenshot of the diff.
 ```
+
+#### rg_git
+
+Dependencies: ripgrep (rg), git
+
+```
+# From the current directory, recursively search .git directories
+# using ripgrep. Additionally, shows the git commits since the
+# <date> for each repository with at least one match.
+#
+# Dependencies: ripgrep (rg), git
+#
+# Usage: rg_git <pattern> <rg options> YYYY-MM-DD
+# NOTE: use single quotes around each argument - see below for an example
+#
+# Example:
+#   rggit 'organizations/find' '!.map' '2023-04-01'
+#     - Recursively searches for 'organizations/find' in all files except .map files.
+#     - Displays the matched lines from each repository.
+#     - Shows git commits since 2023-04-01 for each matched repository.
+#
+# Arguments:
+#   - <pattern>: The pattern to search for using ripgrep.
+#   - <rg options>: Additional options to pass to ripgrep.
+#   - <date>: The date in YYYY-MM-DD format. Only git commits since this date will be shown.
+#
+# Notes:
+#   - Requires ripgrep (rg) and git to be installed and accessible in the system.
+#   - The output includes colored formatting for improved readability.
+```

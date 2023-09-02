@@ -76,3 +76,50 @@ Dependencies: ripgrep (rg), git
 #   - Requires ripgrep (rg) and git to be installed and accessible in the system.
 #   - The output includes colored formatting for improved readability.
 ```
+
+#### backup_tool
+
+Dependencies: git, tar
+
+```
+# Backup Tool: Archive and Restore Git Repositories
+#
+# This script allows users to create a backup archive of a directory containing multiple git repositories and subsequently restore it. While creating the backup, only the content tracked by git and not ignored by `.gitignore` will be archived.
+#
+# Usage:
+#
+# backup_tool.sh <command> <arg1> <arg2>
+#
+# Where `<command>` can be 'archive' or 'restore'.
+#
+# Example:
+#
+# 1. **Archiving**:
+#
+#   backup_tool.sh 'archive' '/path/to/repo/directory' '/path/to/output.tar'
+#
+#   - Archives all the git repositories within `/path/to/repo/directory` into a single tarball at `/path/to/output.tar`.
+#
+# 2. **Restoring**:
+#
+#   backup_tool.sh 'restore' '/path/to/input.tar' '/path/to/restore/directory'
+#
+#   - Restores the repositories from the archive `/path/to/input.tar` to the directory `/path/to/restore/directory`.
+#
+# Arguments:
+#
+# - For the 'archive' command:
+#  - `<path_to_directory>`: The directory containing git repositories to be archived.
+#  - `<path_to_output_tar>`: The path where the final tarball will be created.
+#
+# - For the 'restore' command:
+#  - `<path_to_input_tar>`: The tarball that contains the archived repositories.
+#  - `<path_to_restore_directory>`: The directory where repositories will be restored.
+#
+# Notes:
+#
+# - Requires `git` and `tar` to be installed and accessible in the system.
+# - Only files tracked by git and not ignored by `.gitignore` are archived.
+# - The script creates intermediate tarballs for each repo which are then combined into one main tarball. Intermediate tarballs are deleted after the main tarball is created.
+# - While restoring, individual repositories will be extracted from the main tarball.
+```
